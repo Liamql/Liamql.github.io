@@ -8,6 +8,10 @@ highlighter: pygments
 assets: /assets
 baseurl: 
 
+pygments: true
+safe: true
+auto: true
+
 # pagination
 paginate: 20
 
