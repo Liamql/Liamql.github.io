@@ -28,4 +28,4 @@ some `details` here
 ...
 
 **IMAGE TEST**
-`![](pic/img.jpg)`
+`![](Liamql.github.io/path/to/img.jpg)`
