@@ -8,6 +8,8 @@ highlighter: pygments
 assets: /assets
 baseurl: 
 
+server_port:4000
+
 pygments: true
 safe: true
 auto: true

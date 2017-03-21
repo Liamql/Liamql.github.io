@@ -23,9 +23,9 @@ int main()
 
 ###SUBTITLE
 - **A**
-some `/details` here
+some `details` here
 - **B**
 ...
 
 **IMAGE TEST**
-`![](/pic/img.jpg)`
+`![](pic/img.jpg)`
