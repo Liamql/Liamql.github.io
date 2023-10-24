@@ -1,42 +1,31 @@
-# Jekyll-Jacman
+A Github Pages template for academic websites. This was forked (then detached) by [Stuart Geiger](https://github.com/staeiou) from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/), which is © 2016 Michael Rose and released under the MIT License. See LICENSE.md.
 
-Jekyll-Jacman 是为 [Jekyll](http://jekyllrb.com) 设计的一款清新且具有响应式的主题，拥有更丰富的特性并支持了很多的国内服务。Jacman 始于 [Jacman](https://github.com/wuchong/jacman) 移植而来。
+I think I've got things running smoothly and fixed some major bugs, but feel free to file issues or make pull requests if you want to improve the generic template / theme.
 
-[主题演示](http://simpleyyt.github.io/jekyll-jacman/) | [Yitao's Blog](http://simpleyyt.github.io)
+### Note: if you are using this repo and now get a notification about a security vulnerability, delete the Gemfile.lock file. 
 
-[如何使用 Jacman 主题](http://simpleyyt.github.io/jekyll-jacman/jekyll/2015/09/20/how-to-use-jacman/)
+# Instructions
 
-##功能
-- **菜单 menu**  
- 主导航菜单
-- **控件 widget**  
- 侧边栏的控件。包括：分类、标签、RSS、友情链接、微博秀。
-- **图片相关 Image**  
- 设置网站图标、网站logo、作者头像、博客顶部大图等。还提供了多种图片样式`img-logo`,`img-topic`,`img-center`等。
-- **首页模式 index**  
- 主题提供了两种首页展示模式。
-- **作者 author**  
- 作者信息，主要用于展示网站右下角的社交网络链接。包括：微博、豆瓣、知乎、邮箱、GitHub、StackOverflow、Twitter、Facebook、Linkedin、Google+。
-- **目录 toc**  
- 在文章中和侧边栏可以显示目录。
-- **评论 comments**  
- 支持 [多说](http://duoshuo.com/) & [disqus](https://disqus.com/) 评论。
-- **分享 jiathis**  
- 启用 内建分享工具 或 [加网](http://www.jiathis.com/) 分享系统。
-- **网站统计 Analytiscs**  
- 支持 [谷歌统计](http://www.google.com/analytics/) & [百度统计](http://tongji.baidu.com/) & [CNZZ站长统计](http://www.cnzz.com/)。
-- **Search**  
- 支持 [谷歌自定义搜索](https://www.google.com/cse/ ) & [百度站内搜索](http://zn.baidu.com/)  &[微搜索](http://tinysou.com/)。
-- **totop**  
- 回到顶部。
-- **rss**  
- RSS 订阅链接。
-- **fancybox**  
- 图片查看的 [Fancybox](http://fancyapps.com/fancybox/) 工具。
-- **自定义主题颜色**
- 在`_config.yaml`中就可以修改主题的颜色，而不用去找那些奇怪的 stylus 文件。
-- **其他**
- 你可以设置侧边栏在博文页面中不显示。
+1. Register a GitHub account if you don't have one and confirm your e-mail (required!)
+1. Fork [this repository](https://github.com/academicpages/academicpages.github.io) by clicking the "fork" button in the top right. 
+1. Go to the repository's settings (rightmost item in the tabs that start with "Code", should be below "Unwatch"). Rename the repository "[your GitHub username].github.io", which will also be your website's URL.
+1. Set site-wide configuration and create content & metadata (see below -- also see [this set of diffs](http://archive.is/3TPas) showing what files were changed to set up [an example site](https://getorg-testacct.github.io) for a user with the username "getorg-testacct")
+1. Upload any files (like PDFs, .zip files, etc.) to the files/ directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.  
+1. Check status by going to the repository settings, in the "GitHub pages" section
+1. (Optional) Use the Jupyter notebooks or python scripts in the `markdown_generator` folder to generate markdown files for publications and talks from a TSV file.
 
-##协议
-[MIT](/LICENSE)
+See more info at https://academicpages.github.io/
+
+## To run locally (not on GitHub Pages, to serve on your own computer)
+
+1. Clone the repository and made updates as detailed above
+1. Make sure you have ruby-dev, bundler, and nodejs installed: `sudo apt install ruby-dev ruby-bundler nodejs`
+1. Run `bundle clean` to clean up the directory (no need to run `--force`)
+1. Run `bundle install` to install ruby dependencies. If you get errors, delete Gemfile.lock and try again.
+1. Run `bundle exec jekyll liveserve` to generate the HTML and serve it from `localhost:4000` the local server will automatically rebuild and refresh the pages on change.
+
+# Changelog -- bugfixes and enhancements
+
+There is one logistical issue with a ready-to-fork template theme like academic pages that makes it a little tricky to get bug fixes and updates to the core theme. If you fork this repository, customize it, then pull again, you'll probably get merge conflicts. If you want to save your various .yml configuration files and markdown files, you can delete the repository and fork it again. Or you can manually patch. 
+
+To support this, all changes to the underlying code appear as a closed issue with the tag 'code change' -- get the list [here](https://github.com/academicpages/academicpages.github.io/issues?q=is%3Aclosed%20is%3Aissue%20label%3A%22code%20change%22%20). Each issue thread includes a comment linking to the single commit or a diff across multiple commits, so those with forked repositories can easily identify what they need to patch.
