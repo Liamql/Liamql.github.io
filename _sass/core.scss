@@ -1,0 +1,82 @@
+// Core
+
+/// Sass Vars
+$colors-primary: #ffea00;
+$bp-small-phone: 480px;
+$bp-phone: 900px;
+$bp-desktop: 1024px;
+$bp-big-desktop: 1188px;
+$tags: (
+  (vr, #198226, #fff),
+  (chip, #eb008b, #fff),
+  (cpi, #daeff4, #4a6368),
+  (rpi, #cd2355, #fff)
+);
+
+/// Mixins
+@mixin mq($minmax, $bp) {
+  @media (#{$minmax}-width: $bp) {
+    @content;
+  }
+}
+@mixin linkHover($height: 1.3em, $order:(off,on)) {
+  --shadow: var(--colors-primary-transparent-25);
+  --background: var(--colors-primary);
+
+  $state_primary: '';
+  @if (nth($order,1) != off) {
+    $state_primary: ':hover';
+  }
+  $state_secondary: ':hover';
+  @if (nth($order,2) != on) {
+    $state_secondary: '';
+  }
+
+  position: relative;
+  z-index: 0;
+
+  &::before {
+    content: '';
+    margin: auto;
+    position: absolute;
+    height: $height;
+    top: 0;
+    left: -0.25em;
+    transition: .4s ease-in-out;
+    z-index: -1;
+    box-shadow: -.25em 0 0 0 var(--shadow), -.5em 0 0 0 var(--shadow);
+    background-color: var(--background);
+    border-radius: 0 .1rem .1rem 0; 
+  }
+
+  &#{$state_primary} {
+    --shadow: transparent;
+    --background: transparent;
+
+    &::before {
+      right: 100%;
+    }
+  }
+  &#{$state_secondary} {
+    --shadow: var(--colors-primary-transparent-25);
+    --background: var(--colors-primary);
+    background-color: transparent !important;
+    &::before {
+
+      right: -0.25em;
+    }
+  }
+}
+@mixin hideLinkIcon {
+  &::after { display: none;}
+}
+@mixin breakoutWidth {
+  width: calc(100% + (var(--gutter-inner-x)));
+  margin-left: calc(-.5 * var(--gutter-inner-x));
+}
+@mixin spanBodyWidth {
+  margin-left: 50%;
+  transform: translateX(-50%);
+  width: var(--body-width);
+  max-width: var(--body-max-width);
+}

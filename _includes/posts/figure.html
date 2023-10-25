@@ -1,0 +1,26 @@
+{%- capture type -%}{{ include.type | default:"image"}}{%- endcapture -%}
+<figure class="{{ type }} {{ include.class }}">
+{% if type contains "image" %}
+{% assign img_prefix = include.src | slice:0,4 %}
+{%- capture src -%}{% if img_prefix contains 'http' %}{{include.src}}{% else %}{{ include.src | prepend:'/images/' | absolute_url}}{% endif %}{%- endcapture -%}
+{%- capture alt -%}{% if include.alt %}{{ include.alt }}{% endif %}{%- endcapture -%}
+<img src="{{ src }}" loading="lazy" alt="{{alt}}">
+{% endif %}
+{% if type contains "image-with-blurb" %}
+{%- capture title -%}{% if include.title %}{% capture level %}{{ include.level | default:4 }}{% endcapture %}{% for i in (1..level) %}#{% endfor %} {{ include.title }}{% endif %}{%- endcapture -%}
+{%- capture blurb -%}{% if include.blurb %}{{ include.blurb }}{% endif %}{%- endcapture -%}
+<div class="blurb">{{ title | strip | markdownify }}
+{{ blurb | strip | markdownify }}</div>
+{% endif %}
+{% if type contains "iframe" %}
+{% if include.src contains 'youtube.com' or include.src contains 'youtu.be' %}
+{% comment %}Youtube. Make it a lazy loader... {% endcomment %}
+<div data-src="{{ include.src|replace:'http:','' }}" class="figure-content placeholder" width="600" height="350">
+    <img src="https://img.youtube.com/vi/{{ include.src|split:'/'|last|split:'?'|first}}/0.jpg" loading="lazy"/>
+</div>
+{% else %}
+{% comment %}Some other sort of iframe then... {% endcomment %}
+<iframe class="figure-content" src="{{ include.src|replace:'http:','' }}" width="600" height="350"></iframe>
+{% endif %}
+{% endif %}
+</figure>

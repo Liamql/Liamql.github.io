@@ -1,0 +1,58 @@
+---
+layout: layout
+---
+{% assign post = page %}
+{% include interactions/vars.html %}
+
+{% if post.content contains '<code' %}
+<link rel="stylesheet" href="{{ "/assets/pygments.css" | absolute_url }}" />
+{% endif %}
+
+<article class="post h-entry">
+  <header>
+    <h2>
+      <a href="{{ post.url }}" class="p-name u-url">
+        {{ post.title }}
+      </a>
+    </h2>
+    <div class="post-meta">
+      <div class="post-meta-primary">
+        {% assign read_time = post.content | number_of_words | divided_by:180 %}
+        <time class="dt-published" datetime="{{post.date | date: "%Y-%m-%d"}}">{{ post.date | date:"%B %d %Y" }}</time>
+        <span class="bullet">  &bull; </span>
+        <span class="read-time">{% if read_time != 0 %}{{ read_time }}{% else %}1{% endif %} min read</span>
+      </div>
+      <div class="post-meta-secondary">
+        {% include interactions/count.html %}
+        {% include global/types.html %}
+      </div>
+    </div>
+  </header>
+  <div class="e-content">{{ content }}</div>
+
+  {% if post.collection == 'cardboctober' %}
+    {% capture cardboctober_footer %}{% include posts/cardboctober.html %}{% endcapture %}{{ cardboctober_footer | markdownify }}
+  {% endif %}
+  {% include interactions/syndication.html %}
+</article>
+
+{% include interactions/templates.html %}
+{% include interactions/stream.html %}
+
+{% if post.content contains '<div data-src' %}
+<script>
+  const lazy_iframes = document.querySelectorAll('.iframe [data-src]');
+  lazy_iframes.forEach(el => {
+    el.addEventListener('click', e => {
+      const iframe = document.createElement('iframe');
+      iframe.width = el.clientWidth;
+      iframe.height = el.clientHeight;
+      iframe.classList = el.classList;
+      iframe.classList.remove('placeholder');
+      iframe.src = [el.dataset.src, 'autoplay=1'].join(el.dataset.src.includes('?') ? '&' : '?');
+      
+      el.replaceWith(iframe); 
+    }, false)
+  });
+</script>
+{% endif %}

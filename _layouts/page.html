@@ -1,0 +1,10 @@
+---
+layout: layout
+---
+<div class="e-content">
+{{ content }}
+</div>
+
+{% if content contains 'class="github-card"' %}
+<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+{% endif %}
