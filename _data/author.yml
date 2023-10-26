@@ -1,12 +1,12 @@
-name: "Max Glenister"
-bio: "Max Glenister is a front-end developer from Oxford. He writes mostly about front-end development and technology."
-home: "https://omgmog.net"
+name: "Liang Qin"
+bio: "Machine Learning Engineer at Bytedance | On-Device AI"
+home: "https://liamql.github.io"
 avatar: "https://omgmog.net/faceicon.png"
 urls:
   - label: Mastodon
     link: https://indieweb.social/@omgmog
   - label: Github
-    link: https://github.com/omgmog
+    link: https://github.com/Liamql
   - label: Reddit
     link: https://reddit.com/u/omgmog
   - label: Discord

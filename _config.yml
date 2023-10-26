@@ -1,6 +1,6 @@
 permalink: /post/:title/
 exclude: ["_dev.yml","_config.yml", ".gitignore", "README.md", ".jekyll-cache"]
-url: "https://blog.omgmog.net"
+url: "https://liamql.github.io"
 safe: true
 excerpt_separator: "<!-- more -->"
 keep_files: ["images/","assets/","CNAME"]
@@ -10,7 +10,7 @@ kramdown:
   syntax_highlighter: rouge
 sass:
     style: compressed
-title: "Max Glenister"
+title: "Liang Qin"
 plugins:
   - jekyll-feed
   - jekyll-sitemap
@@ -23,7 +23,7 @@ feed:
 
 # Used by jekyll-feed
 author:
-  name: Max Glenister
+  name: Liang Qin
 
   
 collections:
